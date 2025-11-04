@@ -107,7 +107,7 @@
     .schedule {
       display: grid;
       grid-template-columns: 10% repeat(16, 5.6%);
-      grid-auto-rows: minmax(60px, auto);
+      grid-auto-rows: minmax(45px, auto); /* 调低原行高约25% */
       gap: 2px;
       width: 100%;
       position: relative;
@@ -133,33 +133,34 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 8px; /* 原 10px，降低20% */
+      padding: 6px; /* 原 8px，降低25% */
       border-radius: 6px;
       border: 2px solid #ccc;
-      font-size: 20px;
-      min-height: 40px; /* 原 50px，降低20% */
+      font-size: 18px; /* 原20px */
+      min-height: auto; /* 去掉最小高度限制 */
     }
     .cell {
       background: #f9f9f9;
       border: 1px solid #e0e0e0;
-      min-height: 40px; /* 原 50px，降低20% */
+      min-height: auto; /* 去掉最小高度限制 */
       position: relative;
       border-radius: 4px;
       transition: background-color 0.2s;
-      padding: 4px;
+      padding: 3px; /* 原4px，降低25% */
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 16px;
     }
     .cell.highlight { background-color: #e8f4fd; border: 1px dashed #3498db; }
     .cell.selected { background-color: #d4edda; border: 2px solid #28a745; }
     .cell.occupied { background-color: #fff8e1; }
     .cell.break { background-color: #ddd !important; pointer-events: none; color: #555; font-weight: bold; }
     .assigned-project {
-      padding: 6px 10px;
+      padding: 4px 6px; /* 原 6px 10px */
       color: black;
       border-radius: 4px;
-      font-size: 18px;
+      font-size: 16px; /* 原18px */
       user-select: none;
       box-shadow: 0 1px 3px rgba(0,0,0,0.1);
       cursor: pointer;
@@ -243,6 +244,7 @@
   </div>
 
   <script>
+  // 原有的 JS 完整保留
   document.addEventListener('DOMContentLoaded', function() {
     const schedule = document.getElementById('schedule');
     const projectsContainer = document.getElementById('projects');
